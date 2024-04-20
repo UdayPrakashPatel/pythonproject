@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    
+    <style>
+        /* Additional styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #ffd700; /* Yellow */
+            padding: 10px;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: stretch;
+        }
+        .sidebar {
+            width: 120px;
+            background-color: #cec4c4;
+            padding: 15px;
+            height: 425px;
+        }
+        .sidebar button {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: background-color 0.3s;
+        }
+        .sidebar button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .sidebar button:hover {
+            background-color: #4CAF50; /* Green */
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            display: none; /* Initially hide sub-menu */
+        }
+        .sidebar ul.active {
+            display: block; /* Show sub-menu when active class is added */
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: orange;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Welcome to Uday's website
+</div>
+
+<div class="container">
+    <aside class="sidebar">
+        <!-- Left Sidebar Menu -->
+        <nav class="sidebar-offcanvas overflow-auto" id="sidebar">
+            <ul class="nav mt-2">
+                <li class="nav-item">
+                    <button class="nav-link text-dark" data-submenu="ui-Dashboard">
+                        <i class="icon-grid menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link text-dark" data-submenu="ui-Address">
+                        <i class="mdi mdi-home-map-marker menu-icon"></i>
+                        <span class="menu-title">Address Masters</span>
+                        <i class="menu-arrow"></i>
+                    </button>
+                    <ul id="ui-Address" class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">State</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">District</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Left Sidebar Menu -->
+    </aside>
+    <main class="content" id="main-content">
+        <!-- Main content here -->
+        Main Content
+    </main>
+</div>
+
+<footer class="footer">
+    &copy; 2024 Your Website. All rights reserved.
+</footer>
+
+<script>
+    function toggleSubMenu(subMenuId) {
+        var subMenu = document.getElementById(subMenuId);
+        subMenu.classList.toggle("active");
+    }
+
+    // Add event listeners to parent menu buttons to toggle submenus
+    var parentMenuButtons = document.querySelectorAll('.sidebar button');
+    parentMenuButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var subMenuId = this.getAttribute('data-submenu');
+            toggleSubMenu(subMenuId);
+        });
+    });
+</script>
+
+</body>
+</html>

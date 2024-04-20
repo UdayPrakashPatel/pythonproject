@@ -1,163 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Design by foolishdeveloper.com -->
-    <title>Signup Page</title>
- 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
-    <style media="screen">
-      *,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: #080710;
-}
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-.shape:first-child{
-    background: linear-gradient(
-        #1845ad,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-}
-form{
-    height: 600px;
-    width: 450px;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
-}
-form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
+<html>
 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
+<head>
+    <title>Registion form</title>
+   
+    <style>
+        *
+{
+	margin: 0px;
 }
-input{
-    display: block;
-    height: 40px;
-    width: 100%;
-    background-color: rgba(255,255,255,0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 2px;
-    font-size: 14px;
-    font-weight: 300;
+body
+{
+	background-color: blue 0px 0px fixed;
+	background-image: url("https://c0.wallpaperflare.com/preview/983/920/998/arctic-aurora-aurora-borealis-aurora-polaris.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
 }
-::placeholder{
-    color: #e5e5e5;
+#Reg_form
+{
+	background:linear-gradient(45deg,blue,green,orange);
+	padding: 30px;
+	width: 300px;
+	text-align: center;
+	margin: 100PX auto;
+	border-radius: 10px;
+    box-shadow: 0 0 10px white;
 }
-button{
-    margin-top: 14px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
+.form-group>input[type="text"],
+.form-group>input[type="email"],
+.form-group>input[type="password"],
+.form-group>textarea
+.form-group>select
+{
+    width: 230px;
+    height: 27px;
+    border: none;
+    outline: none;
+    margin-bottom: 17px;
+    background: transparent;
     font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
+    font-family: "comic sans-serif" ;
+    color: white;
+    border-bottom: 2px solid white;
 }
-.social{
-  margin-top: 30px;
-  display: flex;
+::placeholder
+{
+	color: white;
 }
-.social div{
-  background: red;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
+.form-group>input[type="submit"]
+{
+	background: linear-gradient(135deg,blue,green,orange);
+	border: none;
+	outline: none;
+	width: 230px;
+	color: white;
+	padding: 7px 20px;
+	border-radius: 10px;
 }
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
+.form-group>input[type="submit"]:hover
+{
+	box-shadow: 0 0 10px white;
+	cursor: pointer;
 }
-.social .fb{
-  margin-left: 25px;
+#alreadyacount
+{
+	background: linear-gradient(135deg,blue,green,orange);
+	border: none;
+	outline: none;
+	width: 230px;
+	color: white;
+	padding: 7px 20px;
+	border-radius: 10px;
 }
-.social i{
-  margin-right: 4px;
+#Reg_form>#icon
+{
+	position: relative;
+}
+#Reg_form>#icon>span
+{
+	color: red;
+	border: 10px solid green;
+	border-radius: 100%;
+	font-size: 1000px;
+	box-shadow: 0 0 10px white;
 }
 
     </style>
 </head>
+
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+    <div id="Reg_form">
+        <div>
+            <h1>Sign Up</h1>
+        </div>
+        <hr>
+
+        <form action="" method="post">
+            {% csrf_token %} 
+            <div class="form-group">
+                <input type="text" placeholder="Username" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" name="email" id="email">               
+
+            </div>
+            <div class="form-group">
+                <i class="fas fa-unlock-alt"></i>
+                <input type="password" placeholder="Password" id="password1" name="password1">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+
+            </div>
+             <!-- <div class="form-group">
+                <textarea type="text" placeholder="Description"></textarea>
+            </div> -->
+            <!-- <div class="form-group">
+                <select>
+                    <option>Select designation</option>
+                    <option>HR</option>
+                    <option>Data Analyst</option>
+                    <option>Senior software engg.</option>
+                </select>
+            </div> -->
+            
+            <div class="form-group">
+                <input type="submit" value="Sign Up">
+            </div><br>
+            <hr>
+            <div class="">
+                <a id="alreadyacount" href="{% url 'login' %}">Already have an account ? Log In</a>
+            </div>
+        </form>
     </div>
-    <form action="" method="post">
-        {% csrf_token %} 
-        <h3>Signup Here</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" name="username" id="username">
+    <script>
 
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email or Phone" name="email" id="email">
-
-        <label for="password1">Password</label>
-        <input type="password" placeholder="Password" id="password1" name="password1">
-
-
-        <label for="password2">Confrom Password</label>
-        <input type="password" placeholder="Confrom Password" id="password2" name="password2">
-        <button type="submit">Signup</button>
-        
-        <a href="{% url 'login' %}" >i have already account</a>
-    </form>
+    </script>
 </body>
+
 </html>
