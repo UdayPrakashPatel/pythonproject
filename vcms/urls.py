@@ -24,4 +24,10 @@ urlpatterns = [
     path('home/',views.HomePage,name='home'),
     path('WebHome/',views.WebHomePage,name='webHomePage'),
     path('logout/',views.LogoutPage,name='logout'),
+
+    # path('',views.Home,name='homepage'),
+    # path('Crud/',views.CrudPage,name='index'),
+    path('Crud/',views.Home,name='homepage'),
+    path('delete/<int:id>',views.Delete_record,name='delete'),
+    path('<int:id>',views.Update_Record,name='update')
 ]
