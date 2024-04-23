@@ -18,14 +18,13 @@ from django.urls import path
 from visioncenter import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),   
-    path('',views.SignupPage,name='signup'),
-    path('login/',views.LoginPage,name='login'),
+    path('admin/', admin.site.urls),  
+    path('signup/',views.SignupPage,name='signup'),    
+    path('',views.LoginPage,name='login'),
     path('home/',views.HomePage,name='home'),
     path('WebHome/',views.WebHomePage,name='webHomePage'),
     path('logout/',views.LogoutPage,name='logout'),
-
-    # path('',views.Home,name='homepage'),
+    path('ForgetPassword/',views.ForgetPassword,name='forget_password'),
     # path('Crud/',views.CrudPage,name='index'),
     path('Crud/',views.Home,name='homepage'),
     path('delete/<int:id>',views.Delete_record,name='delete'),

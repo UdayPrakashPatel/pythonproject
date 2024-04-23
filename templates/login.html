@@ -144,6 +144,10 @@
             color: #fff;
             text-decoration: none;
         }
+
+        .error-message {
+            color: blue;
+        }
     </style>
 </head>
 
@@ -152,45 +156,43 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
+
+
     <form method="post">
         <h3>Login Here</h3>
-        {% csrf_token %}
 
-        <!--ring div starts here-->
+        <!-- Ring div starts here -->
         <div class="ring">
             <i style="--clr:#00ff0a;"></i>
             <i style="--clr:#ff0057;"></i>
             <i style="--clr:#fffd44;"></i>
             <div class="login">
                 <h2>Login</h2>
+                <!-- Display error messages -->
+                {% if messages %}
+                {% for message in messages %}
+                <div class="error-message">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+                {% csrf_token %}
                 <div class="inputBx">
-                    <input type="text" placeholder="Enter Username" id="username" name="username">
+                    <input type="text" placeholder="Enter Username" id="username" name="username" required>
                 </div>
                 <div class="inputBx">
-                    <input type="password" placeholder="Password" id="password" name="pass">
+                    <input type="password" placeholder="Password" id="password" name="password" required>
                 </div>
                 <div class="inputBx">
                     <input type="submit" value="Sign in">
-                    <!-- <button type="submit">Log In</button> -->
                 </div>
                 <div class="links">
-                    <a href="#">Forget Password</a>
+                    <a href="{% url 'forget_password' %}">Forget Password</a>
                     <a href="{% url 'signup' %}">Signup</a>
                 </div>
-                <!-- <input type="button" value=""> -->
-                <!-- <div class="social">
-                    <div class="go"><a href="https://www.google.com"><i class="fab fa-google"></i> Google</a></div>
-                    <div class="fb"><a href="https://www.facebook.com"><i class="fab fa-facebook"></i> Facebook</a>
-                    </div>
-
-                </div> -->
             </div>
         </div>
-        <!--ring div ends here-->
-
-
-        <!-- <a href="{% url 'signup' %}">Create a account</a> -->
+        <!-- Ring div ends here -->
     </form>
 </body>
+
 
 </html>
